@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="margin_default_size">16dp</dimen>
+    <dimen name="rounded_default_size">16dp</dimen>
+    <dimen name="margin_small_size">4dp</dimen>
+    <dimen name="margin_big_size">64dp</dimen>
+    <dimen name="height_progress">16dp</dimen>
+
+    <dimen name="title_size">16sp</dimen>
+    <dimen name="title_big_size">30sp</dimen>
+    <dimen name="subtitle_size">14sp</dimen>
+</resources>

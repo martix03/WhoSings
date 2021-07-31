@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Who Sings</string>
+    <string name="bad_syntax">The request had bad syntax or was inherently impossible to be satisfied.</string>
+    <string name="auth_failed">Authentication failed</string>
+    <string name="limit_reached">The usage limit has been reached, either you exceeded per day requests limits or your balance is insufficient.</string>
+    <string name="not_auth">You are not authorized to perform this operation.</string>
+    <string name="resource_not_found">The requested resource was not found.</string>
+    <string name="method_not_found">The requested method was not found.</string>
+    <string name="something_wrong">"Ops. Something were wrong. "</string>
+    <string name="system_busy">Our system is a bit busy at the moment and your request can’t be satisfied.</string>
+</resources>
