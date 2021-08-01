@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Who Sings</string>
+    <string name="app_name">Who Sings?</string>
     <string name="bad_syntax">The request had bad syntax or was inherently impossible to be satisfied.</string>
     <string name="auth_failed">Authentication failed</string>
     <string name="limit_reached">The usage limit has been reached, either you exceeded per day requests limits or your balance is insufficient.</string>

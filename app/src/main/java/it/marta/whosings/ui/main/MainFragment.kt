@@ -28,7 +28,6 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getListTrack()
 
-
         observe()
     }
 
@@ -57,7 +56,7 @@ class MainFragment : Fragment() {
                 }
 
                 override fun onFinish() {
-                    // PROSSIMA DOMANDA
+                   viewModel.getListTrack()
                 }
             }.start()
 

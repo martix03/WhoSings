@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import it.marta.whosings.R
 import it.marta.whosings.databinding.LoginFragmentBinding
 
-class Login : Fragment() {
+class LoginFragment : Fragment() {
     private var binding: LoginFragmentBinding? = null
     private val viewModel: LoginViewModel by viewModels()
 
@@ -64,7 +64,7 @@ class Login : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
             }
-            findNavController().navigate(LoginDirections.actionLoginToMainFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginToMainFragment())
         }
     }
 

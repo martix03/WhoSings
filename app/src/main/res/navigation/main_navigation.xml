@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="it.marta.whosings.ui.login.Login"
+        android:name="it.marta.whosings.ui.login.LoginFragment"
         tools:layout="@layout/login_fragment"
         android:label="Login" >
         <action
