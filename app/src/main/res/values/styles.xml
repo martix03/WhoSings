@@ -2,7 +2,8 @@
     <dimen name="margin_default_size">16dp</dimen>
     <dimen name="rounded_default_size">16dp</dimen>
     <dimen name="margin_small_size">4dp</dimen>
-    <dimen name="margin_big_size">64dp</dimen>
+    <dimen name="margin_big_size">48dp</dimen>
+    <dimen name="error_size">128dp</dimen>
     <dimen name="height_progress">16dp</dimen>
 
     <dimen name="title_size">16sp</dimen>

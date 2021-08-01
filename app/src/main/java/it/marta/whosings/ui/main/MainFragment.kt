@@ -1,13 +1,13 @@
-package it.marta.whosings.ui
+package it.marta.whosings.ui.main
 
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import it.marta.whosings.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -28,6 +28,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getListTrack()
 
+
         observe()
     }
 
@@ -37,7 +38,7 @@ class MainFragment : Fragment() {
         }
 
         viewModel.error.observe(viewLifecycleOwner) {
-            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToErrorFragment(it))
         }
 
         viewModel.lyric.observe(viewLifecycleOwner) {
@@ -51,7 +52,8 @@ class MainFragment : Fragment() {
 
             object : CountDownTimer(10000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    binding?.timer?.progress = ((millisUntilFinished / 1000) *10).toInt()
+                    binding?.timer?.progress = ((millisUntilFinished / 1000) * 10).toInt()
+                    binding?.countDown?.text = ((millisUntilFinished / 1000).toInt()).toString()
                 }
 
                 override fun onFinish() {

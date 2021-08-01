@@ -1,9 +1,10 @@
-package it.marta.whosings.ui
+package it.marta.whosings.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import it.marta.whosings.data.repository.WhoSingsRepository
+import it.marta.whosings.data.vo.Lyrics
 import it.marta.whosings.data.vo.SimpleDetailTrack
 import it.marta.whosings.data.vo.TrackList
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +30,7 @@ class MainViewModel : ViewModel(), KoinComponent {
             response?.header?.errorText()?.let {
                 error.value = it
             } ?: kotlin.run {
-                response?.body?.let { body ->
+                response?.getBody<TrackList>()?.let { body ->
                     body.trackList?.let { list ->
 
                         val listArtist = list.map {
@@ -52,7 +53,7 @@ class MainViewModel : ViewModel(), KoinComponent {
                             error.value = it
                         } ?: kotlin.run {
                             val listLine =
-                                responseLyric?.body?.lyrics?.lyricsBody?.removeSuffix("******* This Lyrics is NOT for Commercial use *******")
+                                responseLyric?.getBody<Lyrics>()?.lyrics?.lyricsBody?.removeSuffix("******* This Lyrics is NOT for Commercial use *******")
                                     ?.split("\n")?.filter { it != "/n" }
                             listRandomArtist[randomLyric].stringTrack =
                                 listLine?.get(Random.nextInt(0, listLine.size))

@@ -3,11 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/login">
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="it.marta.whosings.ui.MainFragment"
-        tools:layout="@layout/activity_main"
-        android:label="Who Sings?" />
+        android:name="it.marta.whosings.ui.main.MainFragment"
+        tools:layout="@layout/main_fragment"
+        android:label="Who Sings?" >
+        <action
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_mainFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="it.marta.whosings.ui.ErrorFragment"
+        tools:layout="@layout/error_fragment"
+        android:label="ErrorFragment" >
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="it.marta.whosings.ui.login.Login"
+        tools:layout="@layout/login_fragment"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

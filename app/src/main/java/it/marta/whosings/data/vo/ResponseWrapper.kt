@@ -22,11 +22,12 @@ data class Message<out T : Any>(
     @SerializedName("header")
     val header: Header?
 ) {
-    val body: T?
-        get() = runCatching {
-            val gson = KoinJavaComponent.getKoin().get<Gson>()
-            gson.fromJson(bodyAny as? JsonObject, object : TypeToken<T?>() {}.type) as T
-        }.getOrNull()
+
+    inline fun <reified T> getBody() = runCatching {
+        val gson = KoinJavaComponent.getKoin().get<Gson>()
+        gson.fromJson(bodyAny, T::class.java)
+    }.getOrNull()
+
 
     val bodyVoid: List<Any>?
         get() = runCatching {
