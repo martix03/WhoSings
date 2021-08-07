@@ -39,6 +39,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.checkUsername()
         setHasOptionsMenu(true)
+
+        binding?.bestPlayers?.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToChartFragment())
+        }
         observe()
     }
 

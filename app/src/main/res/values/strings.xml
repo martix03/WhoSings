@@ -19,4 +19,5 @@
     <string name="lose">You Lose</string>
     <string name="recap">You %1$s answered correctly out of %2$s questions</string>
     <string name="play_again">Play Again</string>
+    <string name="best">Best Players</string>
 </resources>
