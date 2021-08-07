@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface WhoSingsService {
 
-    @GET("chart.tracks.get?page=1&page_size=3&country=IT&f_has_lyrics=1&apikey=$apikeyMarta")
+    @GET("chart.tracks.get?page=1&page_size=20&country=IT&f_has_lyrics=1&apikey=$apikeyMarta")
     suspend fun getListTrack(): ResponseWrapper<TrackList>
 
     @GET("track.lyrics.get")
