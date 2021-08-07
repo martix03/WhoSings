@@ -4,9 +4,17 @@
     <dimen name="margin_small_size">4dp</dimen>
     <dimen name="margin_big_size">48dp</dimen>
     <dimen name="error_size">128dp</dimen>
+    <dimen name="win_size">200dp</dimen>
+    <dimen name="icon_size">64dp</dimen>
     <dimen name="height_progress">16dp</dimen>
 
     <dimen name="title_size">16sp</dimen>
     <dimen name="title_big_size">30sp</dimen>
     <dimen name="subtitle_size">14sp</dimen>
+
+    <style name="DialogFragment" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
 </resources>

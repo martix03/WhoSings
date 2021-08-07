@@ -1,4 +1,4 @@
-package it.marta.whosings.ui.login
+package it.marta.whosings.ui.profile
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
@@ -8,45 +8,35 @@ import androidx.room.Room
 import it.marta.whosings.data.database.AppDatabase
 import it.marta.whosings.data.database.User
 import it.marta.whosings.data.repository.UserSession
-import it.marta.whosings.utility.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class LoginViewModel : ViewModel(), KoinComponent {
+class ProfileViewModel : ViewModel(), KoinComponent {
 
-    val usernameFound = SingleLiveEvent<Boolean>()
+    val user = MutableLiveData<User>()
     private val context: Context by inject()
 
     private val db = Room.databaseBuilder(
         context,
         AppDatabase::class.java, "database-whosings"
-    ).fallbackToDestructiveMigration()
+    ) .fallbackToDestructiveMigration()
         .build()
 
     private val userDao = db.userDao()
 
-    fun checkUsername(username: String) {
-        UserSession.username = username
+    fun checkUsername() {
         viewModelScope.launch {
-            usernameFound.value = getDbUser(username) != null
-        }
-    }
+            UserSession.username?.let {
+                user.value = getDbUser(it)
 
-    fun addUser(username: String, name: String) {
-        viewModelScope.launch {
-            addDbUser(username, name)
+            }
         }
     }
 
     private suspend fun getDbUser(username: String) = withContext(Dispatchers.IO) {
         userDao.findByUsername(username)
     }
-
-    private suspend fun addDbUser(username: String, name: String) = withContext(Dispatchers.IO) {
-        userDao.insert(User(username, name, 0, 0))
-    }
-
 }

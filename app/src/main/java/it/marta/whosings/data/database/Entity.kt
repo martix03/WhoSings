@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class User(
     @PrimaryKey val username: String,
-    @ColumnInfo val name: String?
+    @ColumnInfo val name: String?,
+    @ColumnInfo val matchWon: Int?,
+    @ColumnInfo val totalMatch: Int?
 )

@@ -14,4 +14,9 @@
     <string name="name_hint">Insert your name</string>
     <string name="login">Login</string>
     <string name="user_added">User saved!</string>
+    <string name="matches_won">Matches won</string>
+    <string name="win">You Win!</string>
+    <string name="lose">You Lose</string>
+    <string name="recap">You %1$s answered correctly out of %2$s questions</string>
+    <string name="play_again">Play Again</string>
 </resources>
